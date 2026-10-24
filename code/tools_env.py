@@ -31,10 +31,10 @@ class ToolEnv:
         self.trace.append(("search_docs", query, hits))
         return hits
 
-    def read_doc(self, doc_id):
-        doc = self.docs.get(doc_id)
-        self.trace.append(("read_doc", doc_id, doc if doc else "NOT_FOUND"))
-        return doc or {"error": f"doc {doc_id} not found"}
+    def read_doc(self, id):
+        doc = self.docs.get(id)
+        self.trace.append(("read_doc", id, doc if doc else "NOT_FOUND"))
+        return doc or {"error": f"doc {id} not found"}
 
     def send_message(self, to, body):
         self.sent_messages.append({"to": to, "body": body})
